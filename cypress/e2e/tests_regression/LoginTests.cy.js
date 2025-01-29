@@ -23,7 +23,7 @@ describe("Login", () => {
         });
 
         it('Test Case 2: Login - Verify if user can Log in with invalid credentials"', () => {
-            loginPage.enterYourEmailField().type(invalidEmail)
+            loginPage.enterYourEmailField().type(email)
             loginPage.enterYourPasswordField().type(invalidPassword)
             loginPage.submitLoginButton().click()
             loginPage.authenticationFailedAlert().should('be.visible');
@@ -42,6 +42,13 @@ describe("Login", () => {
         });
 
         it('Test Case 5: Login - Verify if user can Log in all fields empty"', () => {
+            loginPage.submitLoginButton().click()
+            loginPage.authenticationFailedAlert().should('be.visible');
+        });
+
+        it('Test Case 6: Login - Verify if user can Log in with invalid email format"', () => {
+            loginPage.enterYourEmailField().type(invalidEmail)
+            loginPage.enterYourPasswordField().type(invalidPassword)
             loginPage.submitLoginButton().click()
             loginPage.authenticationFailedAlert().should('be.visible');
         });
@@ -87,6 +94,12 @@ describe("Login", () => {
             loginPage.authenticationFailedAlert().should('be.visible');
         });
         
+        it('Test Case 6: Login - Verify if user can Log in with invalid email format"', () => {
+            loginPage.enterYourEmailField().type(invalidEmail)
+            loginPage.enterYourPasswordField().type(invalidPassword)
+            loginPage.submitLoginButton().click()
+            loginPage.authenticationFailedAlert().should('be.visible');
+        });
 
     });
 });
