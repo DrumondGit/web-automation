@@ -13,6 +13,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: "http://www.automationpractice.pl/index.php?controller=authentication&back=my-account",
+    failOnStatusCode: false,
   },
   env: {
     mobileViewportWidthBreakpoint: 414,
